@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 	}
 		
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space)) {
+		if (Input.anyKeyDown){//(Input.GetKeyDown(KeyCode.Space)) {
 			RestartGame();
 		}
 	}
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     }
     
     private void RestartGame(){
+    	Debug.Log("reset");
     	StopAllCoroutines();
         Destroy (mazeInstance.gameObject);
         BeginGame();
