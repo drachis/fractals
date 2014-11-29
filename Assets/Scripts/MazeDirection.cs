@@ -48,6 +48,4 @@ public static class MazeDirections {
 			return (MazeDirection)Random.Range(0, Count);
 		}
 	}
-
-
 }

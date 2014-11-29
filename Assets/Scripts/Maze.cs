@@ -44,9 +44,13 @@ public class Maze : MonoBehaviour {
  	private void DoNextGenerationStep (List<MazeCell> activeCells) {
  		int currentIndex = activeCells.Count - 1;
  		MazeCell currentCell = activeCells[currentIndex];
- 		MazeDirection direction = MazeDirections.RandomValue;
+        if (currentCell.IsFullyInitialized) {
+            activeCells.RemoveAt(currentIndex);
+            return;
+        }
+ 		MazeDirection direction = currentCell.RandomUninitializedDirection;
  		IntVector2 coordinates = currentCell.coordinates + direction.ToIntVector2();
- 		Debug.Log ( "debug coordinates: " + coordinates.x + ' ' + coordinates.z);
+ 		//Debug.Log ( "debug coordinates: " + coordinates.x + ' ' + coordinates.z);
  		if (ContainsCoordinates(coordinates) && GetCell(coordinates) == null) {
  			MazeCell neighbor = GetCell(coordinates);
  			if(neighbor == null) {
