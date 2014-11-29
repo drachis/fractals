@@ -1,0 +1,3 @@
+notes
+.net dictionary source	http://referencesource.microsoft.com/#mscorlib/system/collections/generic/dictionary.cs
+nihang sikh - interesting looking monk
