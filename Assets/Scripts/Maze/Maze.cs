@@ -7,7 +7,7 @@ public class Maze : MonoBehaviour {
 	public float generationStepDelay;
 	public IntVector2 size;
 	public MazePassage passagePrefab;
-	public MazeWall wallPrefab;
+	public MazeWall[] wallPrefabs;
     
 	private MazeCell[,] cells;
 
@@ -90,10 +90,12 @@ public class Maze : MonoBehaviour {
     }
 
     private void CreateWall (MazeCell cell, MazeCell otherCell, MazeDirection direction) {
-    	MazeWall wall = Instantiate(wallPrefab) as MazeWall;
+        int index = Random.Range(0,wallPrefabs.Length);
+        Debug.Log(index);
+    	MazeWall wall = Instantiate(wallPrefabs[index]) as MazeWall;
     	wall.Initialize(cell, otherCell, direction);
     	if (otherCell != null) {
-    		wall = Instantiate(wallPrefab) as MazeWall;
+            wall = Instantiate(wallPrefabs[index]) as MazeWall;
     		wall.Initialize(otherCell, cell, direction.GetOpposite());
     	}
     }

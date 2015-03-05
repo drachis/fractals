@@ -1,3 +1,8 @@
 notes
 .net dictionary source	http://referencesource.microsoft.com/#mscorlib/system/collections/generic/dictionary.cs
 nihang sikh - interesting looking monk
+
+2/18 - starting from "Generation the Entire Maze"
+	The maze it using the same code but does not fill the entire space, 
+	it seems that there is a missing check to for maze walls which are at the edge of the grid.
+	In addition unfilled tiles are not checked or re started from during maze generation. read further into the algorithem and grok why they are not working. 
